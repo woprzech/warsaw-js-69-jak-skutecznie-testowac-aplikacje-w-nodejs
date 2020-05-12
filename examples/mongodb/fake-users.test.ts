@@ -5,7 +5,7 @@ import Mock = jest.Mock;
 
 jest.mock('../users.repository');
 
-describe('mock', () => {
+describe('fake', () => {
   let savedUsers = [];
 
   beforeEach(() => {

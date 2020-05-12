@@ -4,7 +4,7 @@ import * as supertest from "supertest";
 import app from "./users.controller";
 import {User} from "./users.repository";
 
-describe('test', () => {
+describe('mongodb', () => {
   let mongoServer: MongoMemoryServer;
   beforeEach(async () => {
     mongoServer = await new MongoMemoryServer({
