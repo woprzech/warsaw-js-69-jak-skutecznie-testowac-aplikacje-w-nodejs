@@ -37,10 +37,10 @@
             <h2>Wojtek Przechodzeń</h2>
 
             <!-- 3. Presentation title -->
-            <h2><strong>"Use your IDE like the pros" [PL]</strong></h2>
+            <h2><strong>"Jak skutecznie testować aplikacje backendowe w Node.js" [PL]</strong></h2>
 
             <!-- 4. Presentation date -->
-            <h2>2019-07-10</h2>
+            <h2>2020-05-13</h2>
 
             <!-- 5. Contact the speaker -->
             <h2><a href="http://twitter.com/speaker">@wprzechodzen</a></h2>
@@ -50,27 +50,93 @@
     <section class="slide compact">
         <h2>Agenda</h2>
         <ol>
-            <li>Nawigacja w IDE</li>
-            <li class="next">Wyszukiwanie</li>
-            <li class="next">Nawigacja w kodzie</li>
-            <li class="next">Operacje na tekście</li>
-            <li class="next">Automatyczne refaktoringi</li>
+            <li>Dlaczego testujemy?</li>
+            <li class="next">TDD</li>
+            <li class="next">Fake vs mock vs stub</li>
+            <li class="next">Narzędzia</li>
         </ol>
     </section>
 
     <section class="slide compact">
-        <h2>Głosowanie</h2>
+        <h2>Dlaczego testujemy?</h2>
         <ol>
-            <li>Jakiego IDE używacie? Intelij vs VS Code vs inne</li>
-            <li class="next">Czy używacie skrótów klawiszowych?</li>
+            <li>Żeby wiedzieć, że aplikacja działa</li>
+            <li class="next">Żeby móc bezpiecznie refaktorować</li>
         </ol>
     </section>
 
     <section class="slide compact">
-        <h2>Informacje</h2>
+        <h2>Dlaczego testujemy mądrze?</h2>
         <ol>
-            <li>Cheat sheet'y</li>
-            <li class="next">Zielony prostokąt w IDE</li>
+            <li class="next">Żeby móc <b>w ogóle</b> refaktorować</li>
+        </ol>
+        <img class="next" src="images/think.jpeg" width="600" height="330" alt="">
+    </section>
+
+    <section class="slide">
+        <img class="cover" src="images/tdd.png" width="300" height="360" alt="">
+    </section>
+
+    <section class="slide compact">
+        <h2>Mock, stub, fake</h2>
+        <ol>
+            <li>Nie używaj mocków</li>
+            <pre style="font-size: 20px;" class="language-javascript line-numbers">
+            <code>
+            (deleteUser as Mock).mockImplementation(
+                () => new Promise(resolve => resolve())
+            );
+
+            something();
+
+            expect(deleteUser).toHaveBeenCalledTimes(1);
+            </code>
+        </pre>
+
+        </ol>
+    </section>
+
+    <section class="slide">
+        <h2 class="shout grow">Narzędzia</h2>
+    </section>
+
+
+    <section class="slide compact">
+        <h2>Integracja z zewnętrznymi serwisami</h2>
+        <ol>
+            <li><b>nock</b> - https://github.com/nock/nock</li>
+            <pre style="font-size: 40px;" class="language-javascript line-numbers">
+            <code>
+                nock('http://example.com:8080')
+                    .post('/users', {userId: '12345'})
+                    .reply(200);
+            </code>
+        </pre>
+
+        </ol>
+    </section>
+
+    <section class="slide compact">
+        <h2>MongoDB</h2>
+        <ol>
+            <li><b>mongodb-memory-server</b> - https://github.com/nodkz/mongodb-memory-server</li>
+
+        </ol>
+    </section>
+
+    <section class="slide compact">
+        <h2>Endpointy</h2>
+        <ol>
+            <li><b>supertest</b> - https://github.com/visionmedia/supertest</li>
+            <pre style="font-size: 20px;" class="language-javascript line-numbers">
+            <code>
+            supertest(app)
+                .post(`/users`)
+                .send(user)
+                .set('Content-Type', 'application/json')
+                .expect(201);
+            </code>
+        </pre>
         </ol>
     </section>
 
