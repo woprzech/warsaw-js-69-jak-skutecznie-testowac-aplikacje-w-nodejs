@@ -11,9 +11,4 @@ app.post('/api/users', async (req, res) => {
   res.sendStatus(200);
 });
 
-app.get('/api/users', async (req, res) => {
-  const users = await userRepository.findAll();
-  res.json(users);
-});
-
 export default app;

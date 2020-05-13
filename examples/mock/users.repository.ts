@@ -25,10 +25,6 @@ class MongoDBUsersRepository {
     return new this.users(user).save();
   }
 
-  findAll(): Promise<User[]> {
-    return this.users.find().lean().exec();
-  }
-
 }
 
 export const userRepository = new MongoDBUsersRepository();
