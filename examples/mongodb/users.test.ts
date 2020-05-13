@@ -25,12 +25,12 @@ describe('mongodb', () => {
   });
 
   it('add user', async () => {
-    await saveUser({name: 'Piotr Kowalski'});
+    await saveUser({name: 'Jan Kowalski'});
 
     const users = await fetchUsers();
 
     expect(users).toHaveLength(1);
-    expect(users).toContainEqual(expect.objectContaining({name: 'Piotr Kowalski'}));
+    expect(users).toContainEqual(expect.objectContaining({name: 'Jan Kowalski'}));
   });
 
   async function fetchUsers() {

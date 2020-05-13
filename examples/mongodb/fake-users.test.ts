@@ -3,7 +3,7 @@ import app from "./users.controller";
 import {MongoDBUsersRepository, User} from "./users.repository";
 import Mock = jest.Mock;
 
-jest.mock('../users.repository');
+jest.mock('./users.repository');
 
 describe('fake', () => {
   let savedUsers = [];
@@ -26,12 +26,12 @@ describe('fake', () => {
   });
 
   it('add user', async () => {
-    await saveUser({name: 'Piotr Kowalski'});
+    await saveUser({name: 'Jan Kowalski'});
 
     const users = await fetchUsers();
 
     expect(users).toHaveLength(1);
-    expect(users).toContainEqual(expect.objectContaining({name: 'Piotr Kowalski'}));
+    expect(users).toContainEqual(expect.objectContaining({name: 'Jan Kowalski'}));
   });
 
   async function fetchUsers() {

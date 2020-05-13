@@ -12,10 +12,10 @@ jest.mock('./users.repository', () => ({
 describe('mock', () => {
 
   it('add user', async () => {
-    await saveUser({name: 'Piotr Kowalski'});
+    await saveUser({name: 'Jan Kowalski'});
 
     expect((userRepository.save as Mock)).toHaveBeenCalledTimes(1);
-    expect((userRepository.save as Mock)).toHaveBeenCalledWith({name: 'Piotr Kowalski'});
+    expect((userRepository.save as Mock)).toHaveBeenCalledWith({name: 'Jan Kowalski'});
   });
 
   async function saveUser(user: User) {

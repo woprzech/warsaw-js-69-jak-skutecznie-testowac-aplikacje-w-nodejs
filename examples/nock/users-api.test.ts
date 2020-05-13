@@ -7,7 +7,7 @@ describe('test', () => {
   beforeEach(async () => {
     nock('http://example.com')
       .get('/users')
-      .reply(200, [{name : 'Piotr Kowalski'}]);
+      .reply(200, [{name : 'Jan Kowalski'}]);
 
     nock('http://example.com')
       .post('/users')
@@ -18,12 +18,12 @@ describe('test', () => {
   });
 
   it('add user', async () => {
-    await saveUser({name: 'Piotr Kowalski'});
+    await saveUser({name: 'Jan Kowalski'});
 
     const users = await fetchUsers();
 
     expect(users).toHaveLength(1);
-    expect(users).toContainEqual(expect.objectContaining({name: 'Piotr Kowalski'}));
+    expect(users).toContainEqual(expect.objectContaining({name: 'Jan Kowalski'}));
     expect(nock.pendingMocks()).toHaveLength(0);
   });
 

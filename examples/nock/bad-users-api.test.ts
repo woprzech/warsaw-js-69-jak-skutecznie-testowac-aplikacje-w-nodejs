@@ -20,13 +20,13 @@ describe('test', () => {
 
   it('add user', async () => {
     (axios.post as Mock).mockImplementation(() => Promise.resolve());
-    (axios.get as Mock).mockImplementation(() => Promise.resolve([{name: 'Piotr Kowalski'}]));
-    await saveUser({name: 'Piotr Kowalski'});
+    (axios.get as Mock).mockImplementation(() => Promise.resolve([{name: 'Jan Kowalski'}]));
+    await saveUser({name: 'Jan Kowalski'});
 
     const users = await fetchUsers();
 
     expect(users).toHaveLength(1);
-    expect(users).toContainEqual(expect.objectContaining({name: 'Piotr Kowalski'}));
+    expect(users).toContainEqual(expect.objectContaining({name: 'Jan Kowalski'}));
   });
 
   async function fetchUsers() {
